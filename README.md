@@ -4,7 +4,6 @@
 </p>
 
 ## Code Walkthrough:
-#### drinks_project:
 #### urls.py
 ```python
   from django.contrib import admin
@@ -46,7 +45,6 @@
     - ` rest_framework `, which is the Django REST Framework used to build APIs.
     - The ` settings.py ` file also contains other critical configurations, including ` DATABASES `, ` MIDDLEWARE `, and ` TEMPLATES `. These settings are vital for the overall functionality and security of the project, but they are not directly related to the specific features of your application.
 
-#### drinks_app:
 #### admin.py
 ```python
   from django.contrib import admin
@@ -73,3 +71,73 @@
   - This file defines the ` Drink ` model, which includes the following fields:
     - ` name `, ` description `, and ` price ` are variables representing the respective attributes of the Drink model.
     - ` CharField ` and ` DecimalField ` are used to define the type and constraints of these fields in the database.
+
+#### views.py
+```python
+  from django.http import JsonResponse
+  from .models import Drink
+  from .serializers import DrinkSerializer
+  from rest_framework.decorators import api_view
+  from rest_framework.response import Response
+  from rest_framework import status
+```
+
+  - ` JsonResponse `: Used for returning JSON responses.
+  - ` Drink ` model and ` DrinkSerializer ` are imported from other ` drinks_app ` files.
+  - REST Framework decorators and response/status modules.
+
+```python
+  @api_view(['GET', 'POST'])
+  def drink_list(request, format=None):
+    if request.method == 'GET':
+      drinks = Drink.objects.all()
+      serializer = DrinkSerializer(drinks, many=True)
+      return Response(serializer.data)
+    if request.method == 'POST':
+      serializer = DrinkSerializer(data=request.data)
+      if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+```
+
+  - This view handles two HTTP methods: ` GET ` and ` POST `.
+    - **GET:** Fetches all drinks from the database, serializes them, and returns the data.
+    - **POST:** Accepts data to create a new drink, validates it with the serializer, and saves the new drink if valid.
+
+```python
+  @api_view(['GET', 'PUT', 'DELETE'])
+  def drink_detail(request, id, format=None):
+    try:
+      drink = Drink.objects.get(pk=id)
+    except Drink.DoesNotExist:
+      return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+      serializer = DrinkSerializer(drink)
+      return Response(serializer.data)
+    elif request.method == 'PUT':
+      serializer = DrinkSerializer(drink, data=request.data)
+      if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+      return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+      drink.delete()
+      return Response(status=status.HTTP_204_NO_CONTENT)
+```
+
+  - This view handles three HTTP methods: ` GET `, ` PUT `, and ` DELETE `.
+    - **GET:** Fetches a specific drink by its ` id `, serializes it, and returns the data.
+    - **PUT:** Updates the details of a specific drink. It validates the input data, saves it if valid, and returns the updated data.
+    - **DELETE:** Deletes the specified drink and returns a ` 204 No Content status `.
+
+## Development Environment:
+This project was developed using the following tools and versions:
+  - Visual Studio Code: 1.97.2
+  - pip: 24.3.1
+  - Python: 3.13.1
+
+## Contact:
+Feel free to reach out to me with any questions, suggestions, or feedback!<br/>
+[![GitHub](https://github.com/CLorant/readme-social-icons/blob/main/large/filled/github.svg)](https://github.com/mateuszcalderon)
+[![Instagram](https://github.com/CLorant/readme-social-icons/blob/main/large/filled/instagram.svg)](https://www.instagram.com/mateuszcalderon/)
+[![LinkedIn](https://github.com/CLorant/readme-social-icons/blob/main/large/filled/linkedin.svg)](https://www.linkedin.com/in/mateuszcalderonreis/)
