@@ -3,6 +3,12 @@
   <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" height="60" width="60">
 </p>
 
+<div align="center">
+  <h1>RESTful Drinks API</h1>
+</div>
+
+The "RESTful Drinks API" is designed to efficiently manage a comprehensive collection of beverages. Developed with Django REST Framework, this API supports full CRUD (Create, Read, Update, Delete) operations, enabling seamless interaction with drink data, which includes attributes such as name, description, and price. This robust API framework ensures ease of integration with other applications while maintaining the flexibility to operate as a standalone service.
+
 ## Code Walkthrough:
 #### urls.py
 ```python
@@ -22,7 +28,7 @@
 
   - The ` urls.py ` file is responsible for routing incoming HTTP requests to the appropriate view functions.
     - ` path('admin/', admin.site.urls) `: Routes requests to the Django admin interface.
-    - ` path('drinks/', views.drink_list) `: Routes requests to a view function named drink_list in the views module of the drinks_app application.
+    - ` path('drinks/', views.drink_list) `: Routes requests to the ` drink_list ` view function in the ` views ` module of the ` drinks_app ` application.
     - ` path('drinks/<int:id>/', views.drink_detail) `: Routes requests to the view function named ` drink_detail ` in the ` views ` module, capturing an integer parameter named `id`.
 
 #### settings.py
@@ -132,12 +138,14 @@
 
 ## Development Environment:
 This project was developed using the following tools and versions:
+  - Django: 5.1.6
+  - Django REST Framework: 3.15.2
   - Visual Studio Code: 1.97.2
   - pip: 24.3.1
   - Python: 3.13.1
 
 ## Contact:
 Feel free to reach out to me with any questions, suggestions, or feedback!<br/>
-[![GitHub](https://github.com/CLorant/readme-social-icons/blob/main/large/filled/github.svg)](https://github.com/mateuszcalderon)
-[![Instagram](https://github.com/CLorant/readme-social-icons/blob/main/large/filled/instagram.svg)](https://www.instagram.com/mateuszcalderon/)
-[![LinkedIn](https://github.com/CLorant/readme-social-icons/blob/main/large/filled/linkedin.svg)](https://www.linkedin.com/in/mateuszcalderonreis/)
+  * [GitHub](https://github.com/mateuszcalderon)
+  * [Instagram](https://www.instagram.com/mateuszcalderon/)
+  * [LinkedIn](https://www.linkedin.com/in/mateuszcalderonreis/)
