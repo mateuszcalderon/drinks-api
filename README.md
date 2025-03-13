@@ -134,12 +134,16 @@ The "RESTful Drinks API" is designed to efficiently manage a comprehensive colle
     - **DELETE:** Deletes the specified drink and returns a ` 204 No Content status `.
 
 ## Development Environment:
-This project was developed using the following tools and versions:
-  - Django: 5.1.6
-  - Django REST Framework: 3.15.2
-  - Visual Studio Code: 1.97.2
-  - pip: 24.3.1
-  - Python: 3.13.1
+This project was built using the following tools and their respective versions:
+  - **Programming Language:** Python 3.13.1
+  - **Editor:** Visual Studio Code 1.97.2
+  - **Package Manager:** pip 24.3.1
+  - **Framework:**
+    - Django: 5.1.6
+    - Django REST Framework: 3.15.2
+
+## Acknowledgment:
+A huge shoutout to Caleb Curry for his amazing [Django REST Framework - Build an API from Scratch](https://www.youtube.com/watch?v=i5JykvxUk_A) video. His clear guidance simplified complex concepts and made understanding this project and its concepts much easier.
 
 ## Contact:
 Feel free to reach out to me with any questions, suggestions, or feedback!<br/>
