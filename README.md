@@ -9,6 +9,9 @@
 
 The "RESTful Drinks API" is designed to efficiently manage a comprehensive collection of beverages. Developed with Django REST Framework, this API supports full CRUD (Create, Read, Update, Delete) operations, enabling seamless interaction with drink data, which includes attributes such as name, description and price. This robust API framework ensures ease of integration with other applications while maintaining the flexibility to operate as a standalone service.
 
+## Resources:
+This project was developed with guidance from [Caleb Curry](https://www.youtube.com/watch?v=i5JykvxUk_A), whose tutorial provided invaluable insights.
+
 ## Code Walkthrough:
 **Note:** This Code Walkthrough includes only the key files from my project. It does not cover all files or implementation details. For a complete view, please refer to the full project on my GitHub profile.
 
